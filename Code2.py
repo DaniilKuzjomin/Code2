@@ -1,6 +1,6 @@
 #7 Задача
 #from random import *
-##A<B
+#A<B
 #A=randint(10,100)
 #B=randint(100,1000)
 #K=int(input("K: "))
@@ -34,6 +34,23 @@
 #4 Задача
 #for i in range(10,21):
 #    print(i**2)
+
+
+#6 Задача
+#from random import *
+#p=0
+#n=0
+#N=randint(1,10)
+#for i in range(N):
+#    Arv=int(input("Sisesta arv"))
+#    if Arv>0:
+#        p+=1
+#    elif Arv<0:
+#        n+=1
+#print("Neg: "+ str(n))
+#print("Pos: "+ str(p))
+#print("Nullid: "+ str(N-n-p))
+
 
 
 
