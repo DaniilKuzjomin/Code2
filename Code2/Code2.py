@@ -135,10 +135,8 @@
 
 from random import *
 from math import *
-from keyboard import *
-
+#from keyboard import *
 print("Teadmiste kontroll".center(60,"*"))
-tase=int(input("Vali tase 1 (lihtne), 2 (keskmine), 3 (raske): "))
 tase=0
 while tase not in [1,2,3]:
     try:
@@ -167,21 +165,41 @@ else:
 p=0
 kokku=0
 while True:
-       v=input("Kas jatkame? enter=jah, stop=ei")
+       v=input("Kas jatkame? enter=jah, stop=ei: ")
        if v=='stop':
            break
        else:
            kokku+=1
-           a=randint(min,max)
-           b=randint(min,max)
+           a=randint(min,max)# !=0 kui //
+           b=randint(min,max)# !=0
            tehe=choice(tehed)#
+           if tehe=='//':
+               while b==0:
+                    try:
+                        b=randint(min,max)
+                    except:
+                        ValueError
            print(f"{a}{tehe}{b}", end=" ")
            vaja=int(eval(str(a)+tehe+str(b))) #round()?
-           vastus=int(input("= "))
+           vastus=""
+           while type(vastus)!=int:
+               try:
+                   vastus=int(input("= ")) # !=str
+               except ValueError:
+                   print("Vaja int!!!")
            if vastus==vaja:
              print("Õige vastus!")
            else:
              print("Mõtle veel!")
 
-    
-    
+print("Kokku ülesandeid oli: ", kokku)
+print("Õige vastused: ",p)
+K=(p/kokku)*100
+if K<60:
+    print("Hinne: 2")
+elif 60<=K<75:
+    print("Hinne: 3")
+elif 75<=K<90:
+    print("Hinne: 4")
+elif K>90:
+    print("Hinne: 5")
